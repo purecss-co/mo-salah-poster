@@ -1,0 +1,894 @@
+// import font
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap");
+
+// colors
+$bg-color: #eaeaea;
+$poster-color: #ce2529;
+$poster-border-color: #040707;
+$neck-color: #efc396;
+$face-color: #f1c69a;
+$hair-color: #040707;
+$beard-color: #040707;
+$nose-color: #e3ad7d;
+$nostril-color: #5f4734;
+$mouth-color: #d28d67;
+$mouth-line-color: #b06138;
+$ear-color: #e5ab7d;
+$eye-color: #040707;
+$eye-shadow-color: #edc092;
+$face-shadow-dark-color: #e7b585;
+$face-shadow-light-color: #edc093;
+$title-center-color: #ba2125;
+$title-bottom-color: #ffffff;
+
+// font family
+$oswald-font: "Oswald", sans-serif;
+
+@mixin shape($width, $height, $background) {
+  width: $width;
+  height: $height;
+  background: $background;
+}
+
+@mixin breakpoint($point) {
+  @if $point==tablet {
+    @media (max-width: 1024px) and (min-width: 768px) {
+      @content;
+    }
+  } @else if $point==mobile {
+    @media (max-width: 480px) and (min-width: 320px) {
+      @content;
+    }
+  }
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: $bg-color;
+  overflow: hidden;
+
+  * {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    box-sizing: border-box;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+    }
+  }
+}
+
+.poster {
+  height: 92.3vmin;
+  width: 70vmin;
+  background: $poster-color;
+  border: 2vmin solid $poster-border-color;
+
+  .hair {
+    z-index: 4;
+    @include shape(25vmin, 20vmin, $hair-color);
+    top: -28.7vmin;
+
+    &:before {
+      @include shape(2.5vmin, 5vmin, $hair-color);
+      top: -9vmin;
+      left: 11.9vmin;
+      transform: rotate(14deg);
+      border-top-left-radius: 100%;
+      border-top-right-radius: 100%;
+    }
+
+    &:after {
+      @include shape(2.9vmin, 5vmin, $hair-color);
+      top: -8.6vmin;
+      left: 14.3vmin;
+      transform: rotate(2deg);
+      border-top-left-radius: 40%;
+      border-top-right-radius: 50%;
+    }
+
+    i:nth-of-type(1) {
+      @include shape(2.2vmin, 5vmin, $hair-color);
+      top: -30.7vmin;
+      left: 10vmin;
+      transform: rotate(4deg);
+      border-top-left-radius: 100%;
+      border-top-right-radius: 100%;
+
+      &:before {
+        @include shape(2.7vmin, 5vmin, $hair-color);
+        transform: rotate(15deg);
+        top: 0.6vmin;
+        left: 1.2vmin;
+        border-top-left-radius: 30%;
+        border-top-right-radius: 45%;
+      }
+
+      &:after {
+        @include shape(1.5vmin, 5vmin, $hair-color);
+
+        transform: rotate(60deg);
+        left: 3.45vmin;
+        top: 0.55vmin;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 20%;
+      }
+    }
+
+    i:nth-of-type(2) {
+      @include shape(1.6vmin, 5vmin, $hair-color);
+      top: -27vmin;
+      left: 19.1vmin;
+      transform: rotate(55deg);
+      border-top-left-radius: 1vmin;
+      border-top-right-radius: 0.2vmin;
+
+      &:before {
+        @include shape(3.1vmin, 5vmin, $hair-color);
+        left: 1.5vmin;
+        top: -0.2vmin;
+        border-top-left-radius: 1vmin;
+        border-top-right-radius: 2vmin;
+      }
+
+      &:after {
+        @include shape(3.7vmin, 5vmin, $hair-color);
+        top: -0.4vmin;
+        left: 4.5vmin;
+        border-top-left-radius: 2vmin;
+        border-top-right-radius: 2vmin;
+      }
+    }
+
+    i:nth-of-type(3) {
+      @include shape(4.7vmin, 6vmin, $hair-color);
+      top: -12vmin;
+      left: 25.4vmin;
+      transform: rotate(50deg);
+      border-top-left-radius: 2.4vmin;
+      border-top-right-radius: 3vmin;
+
+      &:before {
+        @include shape(3.6vmin, 6vmin, $hair-color);
+        top: 2.8vmin;
+        left: 4.5vmin;
+        border-top-left-radius: 1vmin;
+        border-top-right-radius: 2vmin;
+      }
+
+      &:after {
+        @include shape(2.7vmin, 6vmin, $hair-color);
+        top: 4vmin;
+        left: 7.5vmin;
+        border-top-left-radius: 1.5vmin;
+        border-top-right-radius: 2vmin;
+        transform: rotate(10deg);
+      }
+    }
+
+    i:nth-of-type(4) {
+      @include shape(3.8vmin, 2.2vmin, $hair-color);
+      top: 9.1vmin;
+      left: 27.5vmin;
+      transform: rotate(56deg);
+      border-radius: 2vmin;
+
+      &:before {
+        @include shape(3.8vmin, 2.3vmin, $hair-color);
+        top: 2vmin;
+        border-top-right-radius: 1vmin;
+        border-bottom-right-radius: 1vmin;
+      }
+
+      &:after {
+        @include shape(3.8vmin, 3.3vmin, $hair-color);
+        top: 4.1vmin;
+        left: 0.7vmin;
+        border-top-right-radius: 1.8vmin;
+        border-bottom-right-radius: 1vmin;
+        transform: rotate(-5deg);
+      }
+    }
+
+    i:nth-of-type(5) {
+      @include shape(1vmin, 1.8vmin, $hair-color);
+      top: 19vmin;
+      left: 24.5vmin;
+      border-bottom-right-radius: 1vmin;
+      border-bottom-left-radius: 0.5vmin;
+
+      &:before {
+        @include shape(1vmin, 1.5vmin, $hair-color);
+        left: -0.8vmin;
+        top: 0.3vmin;
+        transform: rotate(25deg);
+      }
+
+      &:after {
+        @include shape(2.5vmin, 4vmin, $hair-color);
+        top: -6.2vmin;
+        left: 2vmin;
+        transform: rotate(-30deg);
+      }
+    }
+
+    i:nth-of-type(6) {
+      @include shape(3vmin, 13vmin, $hair-color);
+      top: 2vmin;
+      left: 24.1vmin;
+
+      &:before {
+        @include shape(14vmin, 6vmin, $hair-color);
+        top: -9vmin;
+        left: -15vmin;
+      }
+
+      &:after {
+        @include shape(7vmin, 6vmin, $hair-color);
+        top: -11vmin;
+        left: -13vmin;
+      }
+    }
+  }
+
+  .hair-left {
+    transform: scaleX(-1);
+  }
+
+  .ear-inner-left {
+    @include shape(4vmin, 12vmin, $poster-color);
+    left: -26.6vmin;
+    top: -3vmin;
+    z-index: 3;
+    border-top-right-radius: 80%;
+  }
+
+  .ear-left {
+    @include shape(1.7vmin, 2.3vmin, $ear-color);
+    left: -26.6vmin;
+    top: -8.7vmin;
+    z-index: 3;
+    transform: rotate(-110deg);
+    border-radius: 50% / 10%;
+
+    &:before {
+      @include shape(3.3vmin, 2.2vmin, $ear-color);
+      border-radius: 50% / 15%;
+      left: -3.2vmin;
+      top: -0.3vmin;
+      transform: rotate(5deg);
+    }
+
+    &:after {
+      @include shape(2.8vmin, 1.8vmin, $ear-color);
+      left: -5.7vmin;
+      top: -0.6vmin;
+      transform: rotate(7deg) skewY(10deg);
+      border-top-left-radius: 1.4vmin;
+    }
+
+    i:nth-of-type(1) {
+      @include shape(4vmin, 1vmin, $hair-color);
+      top: 2.4vmin;
+      left: -1.6vmin;
+      transform: rotate(-5deg);
+    }
+  }
+
+  .ear-inner-right {
+    @include shape(4vmin, 12vmin, $poster-color);
+    left: 26.2vmin;
+    top: -3vmin;
+    z-index: 3;
+    border-top-left-radius: 80%;
+  }
+
+  .ear-right {
+    @include shape(1.7vmin, 2.3vmin, $ear-color);
+    left: 26vmin;
+    top: -8.7vmin;
+    z-index: 3;
+    transform: rotate(105deg);
+    border-radius: 50% / 10%;
+
+    &:before {
+      @include shape(3.3vmin, 2.3vmin, $ear-color);
+      border-radius: 50% / 15%;
+      left: 1.6vmin;
+      top: -0.1vmin;
+      transform: rotate(-4deg);
+    }
+
+    &:after {
+      @include shape(2.8vmin, 2.05vmin, $ear-color);
+      left: 4.8vmin;
+      top: -0.42vmin;
+      transform: rotate(-4deg) skewY(-9deg);
+      border-top-right-radius: 1.4vmin;
+    }
+  }
+
+  .forehead {
+    z-index: 5;
+    top: -31.7vmin;
+    left: -11.2vmin;
+    @include shape(9vmin, 7vmin, $face-color);
+    border-radius: 50% / 25%;
+    transform: rotate(-14deg);
+
+    &:before {
+      @include shape(6vmin, 7vmin, $face-color);
+      border-top-left-radius: 7vmin;
+      border-bottom-left-radius: 6vmin;
+      left: -0.9vmin;
+    }
+
+    &:after {
+      @include shape(6vmin, 7vmin, $face-color);
+      border-top-left-radius: 7vmin;
+      border-bottom-left-radius: 6vmin;
+      left: -1vmin;
+      top: 1vmin;
+    }
+
+    i:nth-of-type(1) {
+      z-index: 5;
+      @include shape(4vmin, 3vmin, $face-color);
+      border-radius: 50% / 25%;
+      transform: rotate(60deg);
+      top: -0.8vmin;
+      left: 7vmin;
+
+      &:before {
+        @include shape(4vmin, 3vmin, $face-color);
+        border-radius: 50% / 25%;
+        transform: rotate(90deg);
+        left: 1.8vmin;
+        top: -2vmin;
+      }
+    }
+
+    i:nth-of-type(2) {
+      z-index: 5;
+      @include shape(9vmin, 7vmin, $face-color);
+      border-radius: 50% / 25%;
+      transform: rotate(30deg);
+      left: 10.8vmin;
+      top: 5.4vmin;
+
+      &:before {
+        @include shape(6vmin, 7vmin, $face-color);
+        border-top-right-radius: 7vmin;
+        border-bottom-right-radius: 6vmin;
+        left: 3.7vmin;
+        top: 0.1vmin;
+      }
+
+      &:after {
+        @include shape(6vmin, 7vmin, $face-color);
+        border-top-right-radius: 8vmin;
+        border-bottom-right-radius: 6vmin;
+        left: 4vmin;
+        top: 0.8vmin;
+      }
+    }
+
+    i:nth-of-type(3) {
+      z-index: 5;
+      @include shape(12vmin, 6vmin, $face-color);
+      transform: rotate(15deg);
+      left: 5vmin;
+      top: 8.5vmin;
+
+      &:before {
+        @include shape(6.5vmin, 3vmin, $face-color);
+        border-radius: 50% / 25%;
+        left: 10.5vmin;
+        top: 5.8vmin;
+        transform: rotate(83deg);
+      }
+
+      &:after {
+        @include shape(6.5vmin, 3vmin, $face-color);
+        border-radius: 50% / 25%;
+        left: -8.2vmin;
+        top: 5.5vmin;
+        transform: rotate(-83deg);
+      }
+    }
+  }
+
+  .face-shadow {
+    @include shape(10vmin, 5vmin, red);
+    left: -13vmin;
+    z-index: 3;
+    top: -15vmin;
+  }
+
+  .face {
+    @include shape(22vmin, 23vmin, $face-color);
+    border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
+    z-index: 5;
+    top: -1vmin;
+
+    &:before {
+      @include shape(21.7vmin, 15vmin, $face-color);
+      border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
+      top: 6.4vmin;
+    }
+
+    &:after {
+      @include shape(19vmin, 1.5vmin, $face-color);
+      top: 0.2vmin;
+      left: 1.5vmin;
+    }
+
+    .eyebrow {
+      @include shape(8.8vmin, 3.4vmin, $eye-color);
+      top: -14vmin;
+      left: 10.9vmin;
+      transform: rotate(-5deg);
+      border-top-right-radius: 2.5vmin;
+      border-top-left-radius: 4vmin;
+      z-index: 5;
+
+      &:before {
+        @include shape(8vmin, 3.8vmin, $eye-color);
+        border-top-right-radius: 2.5vmin;
+        border-top-left-radius: 2vmin;
+        left: -0.1vmin;
+        top: -0.4vmin;
+        transform: skewX(5deg);
+      }
+
+      &:after {
+        @include shape(6.4vmin, 2vmin, $eye-color);
+        border-top-left-radius: 50%;
+        border-top-right-radius: 60%;
+        top: -0.55vmin;
+        left: 0.4vmin;
+      }
+
+      i:nth-of-type(1) {
+        z-index: 5;
+        @include shape(9vmin, 2.6vmin, $face-color);
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        top: 1.6vmin;
+        left: -0.1vmin;
+      }
+    }
+
+    .eyebrow-left {
+      transform: scaleX(-1) rotate(-6deg);
+      left: -11.2vmin;
+      top: -14vmin;
+    }
+
+    .eyebrow-small {
+      z-index: 3;
+      @include shape(2.7vmin, 1vmin, $eye-color);
+      top: -17.8vmin;
+      left: 14.8vmin;
+      border-top-left-radius: 100%;
+      transform: rotate(35deg);
+
+      &:before {
+        @include shape(2.3vmin, 1vmin, $face-color);
+        border-top-left-radius: 100%;
+        left: -0.3vmin;
+        top: 0.35vmin;
+        transform: rotate(10deg);
+      }
+    }
+
+    .eyebrow-small-left {
+      transform: scaleX(-1) rotate(25deg);
+      left: -15.4vmin;
+      border-top-right-radius: 100%;
+      top: -17.8vmin;
+
+      &:before {
+        transform: rotate(15deg);
+        border-top-right-radius: 100%;
+      }
+    }
+
+    .eye {
+      @include shape(3.8vmin, 3.8vmin, $eye-color);
+      border-top-right-radius: 100%;
+      border-bottom-left-radius: 100%;
+      top: -10.6vmin;
+      left: 10.5vmin;
+      transform: rotate(-45deg);
+      z-index: 5;
+
+      &:before {
+        @include shape(2.4vmin, 2.4vmin, #fbe7d9);
+        border-top-right-radius: 110%;
+        border-bottom-left-radius: 110%;
+        top: 0.6vmin;
+        left: 0.6vmin;
+      }
+
+      &:after {
+        @include shape(1.55vmin, 2.2vmin, $eye-color);
+        border-radius: 50%;
+        transform: rotate(-50deg);
+        top: 0.78vmin;
+        left: 1.1vmin;
+      }
+    }
+
+    .eye-right {
+      i:nth-of-type(1) {
+        @include shape(0.8vmin, 0.5vmin, $eye-color);
+        left: -3.8vmin;
+        top: -3.2vmin;
+        border-radius: 30%;
+        transform: rotate(5deg);
+      }
+    }
+
+    .eye-shadow-right {
+      z-index: 4;
+      @include shape(
+        4.5vmin,
+        2.1vmin,
+        linear-gradient(to right, $eye-shadow-color, $nose-color)
+      );
+      top: -7.5vmin;
+      left: 12.5vmin;
+      border-bottom-right-radius: 2.1vmin;
+      border-bottom-left-radius: 2.1vmin;
+      transform: rotate(-15deg);
+
+      &:before {
+        @include shape(5vmin, 2.1vmin, $face-color);
+        border-bottom-right-radius: 2.1vmin;
+        border-bottom-left-radius: 2.1vmin;
+        top: -0.9vmin;
+        left: -0.1vmin;
+      }
+    }
+
+    .eye-left {
+      left: -10.5vmin;
+
+      i:nth-of-type(1) {
+        @include shape(0.8vmin, 0.5vmin, $eye-color);
+        left: 3.2vmin;
+        top: 3.5vmin;
+        border-radius: 30%;
+        transform: rotate(-95deg);
+      }
+    }
+
+    .eye-shadow-left {
+      z-index: 4;
+      @include shape(
+        4.5vmin,
+        2.1vmin,
+        linear-gradient(to left, $eye-shadow-color, $nose-color)
+      );
+      top: -7.2vmin;
+      left: -12vmin;
+      border-bottom-right-radius: 2.1vmin;
+      border-bottom-left-radius: 2.1vmin;
+      transform: rotate(5deg);
+
+      &:before {
+        @include shape(5vmin, 2.1vmin, $face-color);
+        border-bottom-right-radius: 2.1vmin;
+        border-bottom-left-radius: 2.1vmin;
+        top: -0.9vmin;
+        left: -0.1vmin;
+      }
+    }
+  }
+
+  .nose {
+    z-index: 7;
+    @include shape(
+      2vmin,
+      7.3vmin,
+      linear-gradient(to bottom, $face-color, $nose-color)
+    );
+    top: -8.5vmin;
+    left: 1vmin;
+    transform: skewX(8deg);
+
+    &:before {
+      @include shape(
+        2vmin,
+        7.3vmin,
+        linear-gradient(to bottom, $face-color, $nose-color)
+      );
+      transform: skewX(-16deg);
+      left: -1.1vmin;
+    }
+
+    &:after {
+      @include shape(
+        1.7vmin,
+        7.3vmin,
+        linear-gradient(to bottom, $face-color, $nose-color)
+      );
+      transform: skewX(-8deg);
+      left: -0.45vmin;
+    }
+
+    i:nth-of-type(1) {
+      z-index: 5;
+      transform: skewX(-8deg) rotate(-10deg);
+      @include shape(2.5vmin, 2.1vmin, $nose-color);
+      top: 8.7vmin;
+      left: 0.8vmin;
+      border-top-right-radius: 2vmin;
+      border-bottom-right-radius: 2vmin;
+
+      &:before {
+        @include shape(2.5vmin, 2.1vmin, $nose-color);
+        border-top-left-radius: 2vmin;
+        border-bottom-left-radius: 2vmin;
+        left: -4.6vmin;
+        top: -0.7vmin;
+        transform: rotate(18deg);
+      }
+
+      &:after {
+        @include shape(3vmin, 2.1vmin, $nose-color);
+        transform: rotate(10deg);
+        left: -2.5vmin;
+        top: -0.1vmin;
+        border-radius: 0.5vmin;
+      }
+    }
+
+    i:nth-of-type(2) {
+      z-index: 5;
+      transform: skewX(-8deg);
+      @include shape(2.2vmin, 1.5vmin, $nose-color);
+      border-bottom-left-radius: 0.5vmin;
+      border-bottom-right-radius: 0.5vmin;
+      top: 10.8vmin;
+      left: -2.7vmin;
+    }
+  }
+
+  .nostril {
+    z-index: 6;
+    @include shape(6.6vmin, 2vmin, $nostril-color);
+    left: -0.2vmin;
+    top: 1.2vmin;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+
+  .mustache {
+    @include shape(7vmin, 6vmin, $beard-color);
+    z-index: 5;
+    border-top-right-radius: 2vmin;
+    transform: skew(15deg);
+    top: 10.5vmin;
+    left: 7.7vmin;
+
+    &:before {
+      @include shape(7vmin, 6vmin, $beard-color);
+      transform: skew(-30deg);
+      border-top-left-radius: 2vmin;
+      left: -7.8vmin;
+    }
+
+    &:after {
+      @include shape(12vmin, 8vmin, $beard-color);
+      transform: skew(-15deg);
+      left: -7vmin;
+      top: 1vmin;
+    }
+
+    i:nth-of-type(1) {
+      transform: skew(-15deg);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 3.8vmin 3vmin 3.8vmin;
+      border-color: transparent transparent $beard-color transparent;
+      top: -7.5vmin;
+      left: -6vmin;
+
+      &:before {
+        @include shape(2vmin, 1vmin, $face-color);
+        transform: rotate(40deg);
+        left: 1.8vmin;
+        top: 1.2vmin;
+      }
+
+      &:after {
+        @include shape(2vmin, 1vmin, $face-color);
+        transform: rotate(-40deg);
+        left: -3.8vmin;
+        top: 1.1vmin;
+      }
+    }
+  }
+
+  .mouth {
+    z-index: 6;
+    @include shape(5vmin, 5vmin, $mouth-color);
+    border-top-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+    top: 11vmin;
+    left: -0.1vmin;
+    transform: rotate(-45deg);
+
+    &:before {
+      @include shape(4.6vmin, 4.6vmin, $mouth-color);
+      border-top-right-radius: 100%;
+      border-bottom-left-radius: 100%;
+      left: 1vmin;
+      top: 1.1vmin;
+    }
+
+    &:after {
+      @include shape(3.1vmin, 3.1vmin, $mouth-color);
+      border-top-right-radius: 100%;
+      border-bottom-left-radius: 100%;
+      left: 3vmin;
+      top: 3vmin;
+    }
+
+    i:nth-of-type(1) {
+      @include shape(4.6vmin, 4.6vmin, $mouth-color);
+      border-top-right-radius: 100%;
+      border-bottom-left-radius: 100%;
+      left: -1.2vmin;
+      top: -1.2vmin;
+
+      &:before {
+        @include shape(3.1vmin, 3.1vmin, $mouth-color);
+        border-top-right-radius: 100%;
+        border-bottom-left-radius: 100%;
+        left: -0.4vmin;
+        top: -0.4vmin;
+      }
+    }
+
+    i:nth-of-type(2) {
+      @include shape(1.8vmin, 1.5vmin, $beard-color);
+      transform: rotate(-45deg);
+      border-radius: 2vmin;
+      left: 3.1vmin;
+      top: -2.4vmin;
+
+      &:before {
+        @include shape(1vmin, 1vmin, $beard-color);
+        top: 0.85vmin;
+        left: 0.3vmin;
+        transform: rotate(-5deg);
+      }
+
+      &:after {
+        @include shape(1vmin, 1vmin, $beard-color);
+        top: -0.55vmin;
+        left: 0.3vmin;
+        transform: rotate(10deg);
+      }
+    }
+
+    i:nth-of-type(3) {
+      z-index: 6;
+      @include shape(4.5vmin, 1.5vmin, transparent);
+      border-top: 0.68vmin solid $mouth-line-color;
+      border-top-left-radius: 100%;
+      transform: rotate(55deg);
+      left: -2.9vmin;
+      top: -3.62vmin;
+
+      &:before {
+        @include shape(4.7vmin, 0.5vmin, transparent);
+        border-top: 0.67vmin solid $mouth-line-color;
+        border-top-right-radius: 100%;
+        transform: rotate(-17deg);
+        left: 4.3vmin;
+        top: -1.35vmin;
+      }
+    }
+
+    i:nth-of-type(4) {
+      transform: rotate(45deg);
+      @include shape(0.8vmin, 0.8vmin, $mouth-line-color);
+      top: -0.6vmin;
+      left: 0.5vmin;
+      z-index: 6;
+    }
+
+    i:nth-of-type(5) {
+      @include shape(1.6vmin, 0.4vmin, $mouth-color);
+      border-bottom-left-radius: 1vmin;
+      border-bottom-right-radius: 1vmin;
+      transform: rotate(45deg);
+      top: -2vmin;
+      left: 0.2vmin;
+      z-index: 7;
+
+      &:before {
+        @include shape(1.6vmin, 0.4vmin, $mouth-color);
+        border-bottom-left-radius: 1vmin;
+        border-bottom-right-radius: 1vmin;
+        left: 1.7vmin;
+        top: 0.05vmin;
+      }
+    }
+  }
+
+  .beard {
+    @include shape(24vmin, 23vmin, $beard-color);
+    border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
+    top: 8vmin;
+    z-index: 2;
+  }
+
+  .neck {
+    @include shape(22vmin, 8.5vmin, $neck-color);
+    top: 39vmin;
+    border-radius: 50% 50% 50% 50% / 10% 10% 90% 90%;
+    z-index: 1;
+
+    &:before {
+      @include shape(18.5vmin, 8vmin, $neck-color);
+      left: 1.8vmin;
+      top: -6.7vmin;
+    }
+
+    i:nth-of-type(1) {
+      @include shape(
+        11vmin,
+        6vmin,
+        linear-gradient(to bottom, $neck-color, darken($neck-color, 5%))
+      );
+      border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
+      top: -7vmin;
+
+      &:before {
+        @include shape(5.5vmin, 2vmin, lighten($neck-color, 3%));
+        left: 2.7vmin;
+        top: 1.2vmin;
+        border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
+      }
+    }
+  }
+
+  .name-center {
+    font-family: $oswald-font;
+    font-size: 16.1vmin;
+    top: 35.8vmin;
+    left: -0.3vmin;
+    color: $title-center-color;
+    z-index: 5;
+  }
+
+  .name-center-2 {
+    font-family: $oswald-font;
+    font-size: 16.1vmin;
+    top: 35.8vmin;
+    left: 24vmin;
+    color: $title-center-color;
+  }
+
+  .name-bottom {
+    font-family: $oswald-font;
+    font-size: 10vmin;
+    left: 12vmin;
+    top: 69vmin;
+    color: $title-bottom-color;
+  }
+}
