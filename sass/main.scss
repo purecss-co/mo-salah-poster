@@ -961,31 +961,35 @@ body {
     }
   }
 
-  .name-center {
-    z-index: 5;
-    font-family: $oswald-font;
-    font-size: 16.1vmin;
-    color: $title-center-color;
-    top: 35.8vmin;
-    left: -0.3vmin;
-    text-transform: uppercase;
-  }
+  .name {
+    &-center {
+      &-1 {
+        z-index: 5;
+        font-family: $oswald-font;
+        font-size: 16.1vmin;
+        color: $title-center-color;
+        top: 35.8vmin;
+        left: -0.3vmin;
+        text-transform: uppercase;
+      }
 
-  .name-center-2 {
-    font-family: $oswald-font;
-    font-size: 16.1vmin;
-    color: $title-center-color;
-    top: 35.8vmin;
-    left: 24vmin;
-    text-transform: uppercase;
-  }
+      &-2 {
+        font-family: $oswald-font;
+        font-size: 16.1vmin;
+        color: $title-center-color;
+        top: 35.8vmin;
+        left: 24vmin;
+        text-transform: uppercase;
+      }
+    }
 
-  .name-bottom {
-    font-family: $oswald-font;
-    font-size: 10vmin;
-    color: $title-bottom-color;
-    top: 69vmin;
-    left: 12vmin;
-    text-transform: uppercase;
+    &-bottom {
+      font-family: $oswald-font;
+      font-size: 10vmin;
+      color: $title-bottom-color;
+      top: 69vmin;
+      left: 12vmin;
+      text-transform: uppercase;
+    }
   }
 }
